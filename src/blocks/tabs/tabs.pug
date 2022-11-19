@@ -1,0 +1,37 @@
+mixin tabs(mods)
+  -
+    const baseName = 'tabs'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .tabs(class=allMods)&attributes(attributes)
+    .tabs-head
+      .tabs-head__inner
+        .tabs-head__item.tabs-head__item--active квиз лендинг
+        .tabs-head__item интеграция с&nbsp;рекламным трафиком
+        .tabs-head__overlay
+    .inner
+      .tabs-content
+        .swiper-wrapper
+          block
+
+mixin tabs-content__item(mods)
+  -
+    const baseName = 'tabs-content__item'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .tabs-content__item.swiper-slide(class=allMods)&attributes(attributes)
+    block

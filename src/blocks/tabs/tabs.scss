@@ -1,0 +1,59 @@
+.tabs {
+  background: $bgBlack;
+  overflow: hidden;
+  &-head {
+    border-bottom: 1px solid #575757;
+    &__inner {
+      position: relative;
+      display: flex;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+    &__item {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      min-width: 320px;
+      padding: 35px 120px 30px;
+      font: 300 50px/1.2 $font;
+      justify-content: center;
+      text-transform: uppercase;
+      flex-grow: 1;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.3s ease;
+      @include media-laptop {
+        padding: 20px 30px;
+        font-size: 30px;
+      }
+      @include media-tablet {
+        min-width: 160px;
+        padding: 8px 10px;
+        font-size: 15px;
+      }
+      &--active {
+        color: $black;
+      }
+    }
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 1px;
+      height: 100%;
+      background: #fff;
+      transform-origin: left;
+      transition: 0.3s ease;
+    }
+  }
+  &-content {
+    &__item {
+      transition: opacity 0.4s ease;
+      &:not(.swiper-slide-active) {
+        opacity: 0;
+      }
+    }
+  }
+}

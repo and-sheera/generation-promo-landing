@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+*:focus {
+  outline: none;
+}
+html {
+  box-sizing: border-box;
+  line-height: 1;
+  &.ov-hidden {
+    overflow: hidden;
+    body {
+      overflow: hidden;
+    }
+  }
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: ease 0.3s;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+span,
+ul,
+ol,
+li,
+tr,
+td,
+th,
+table,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+// defaults
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: var(--header-height, 145px);
+  font-family: $font;
+  color: $black;
+  .inner {
+    width: 100%;
+    max-width: 1920px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 100px;
+    @include media-laptop {
+      padding: 0 25px;
+    }
+    @include media-tablet {
+      padding: 0 15px;
+    }
+  }
+  main {
+    flex: 1 0;
+  }
+  .text-blue {
+    color: $blue;
+  }
+}

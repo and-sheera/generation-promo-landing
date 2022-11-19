@@ -1,0 +1,60 @@
+mixin projects(mods)
+  -
+    const baseName = 'projects'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      {
+        img: 'img/project-1.jpg',
+        name: 'PR prometheus',
+        descr: 'Продажа ЖК премиум-класса',
+      },
+      {
+        img: 'img/project-2.jpg',
+        name: 'OPN РЕМОНТ',
+        descr: 'Ремонт квартир под ключ в Москве и области',
+      },
+      {
+        img: 'img/project-3.jpg',
+        name: 'OPN REALTY',
+        descr: 'Эксклюзивные новостройки в Дубае',
+      },
+      {
+        img: 'img/project-4.jpg',
+        name: 'JACQUELINE',
+        descr: 'Груминг собак и кошек в Москве',
+      },
+      {
+        img: 'img/project-5.jpg',
+        name: 'AGROLIDER',
+        descr: 'Зерносушильное оборудование от завода производителя',
+      },
+      {
+        img: 'img/project-6.jpg',
+        name: 'ЗДОРОВАЯ УЛЫБКА',
+        descr: 'Лечение и восстановление зубов по современным технологиям',
+      },
+    ]
+
+  .projects(class=allMods)&attributes(attributes)
+    .inner
+      +ui-h2('Запущенные проекты', 'projects')
+      .projects__list
+        each item in data
+          .projects__item
+            .projects__img
+              img(src=item.img alt='')
+              +ui-button('Смотреть проект', 'projects, --outline-white')(href='#')
+            .projects__name !{item.name}
+            .projects__descr !{item.descr}
+      .projects__bottom
+        +ui-button('Смотреть еще')
+
+    block

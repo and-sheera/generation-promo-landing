@@ -1,0 +1,31 @@
+mixin price(mods)
+  -
+    const baseName = 'price'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .price(class=allMods)&attributes(attributes)
+    .inner
+      .price__wrapper
+        .price__info
+          +ui-h2('сколько это стоит?', 'price')
+          .price__descr Стоимость зависит от масштаба проекта, спроса в вашей нише и&nbsp;регионе, а так же от количества направлений и&nbsp;других деталий и&nbsp;дополнительных решений.
+          +ui-button('Оставить заявку', 'price')(href='#')
+        .price__nums
+          .price__item
+            .price__top Базовая стоимость
+            .price__main
+              .price__from от
+              .price__num 22 750 ₽
+            .price__discount ‒35%
+          .price__item.price__item--simple
+            .price__top Без скидки
+            .price__main
+              .price__num 35 000 ₽
+    block

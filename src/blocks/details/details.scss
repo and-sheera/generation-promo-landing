@@ -1,0 +1,81 @@
+.details {
+  padding: 130px 0 265px;
+  background: $bgBlack;
+  color: #fff;
+  @include media-laptop {
+    padding: 60px 0 100px;
+  }
+  &__head {
+    margin-bottom: 100px;
+    @include media-laptop {
+      margin-bottom: 80px;
+    }
+    @include media-tablet {
+      margin-bottom: 65px;
+    }
+  }
+  &__subtitle {
+    margin-top: 40px;
+    max-width: 580px;
+    font: 25px/1.2 $font;
+    letter-spacing: 0.02em;
+    color: #dedede;
+    @include media-laptop {
+      margin-top: 30px;
+      font-size: 20px;
+    }
+    @include media-tablet {
+      max-width: 315px;
+      margin-top: 25px;
+      font-size: 16px;
+    }
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 48.4%;
+    gap: 65px;
+    padding: 50px 0;
+    border-top: 1px solid #888;
+    @include media-laptop {
+      padding: 40px 0;
+    }
+    @include media-tablet {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 30px 0;
+    }
+  }
+  &__name {
+    font: 28px/1.2 $font;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    @include media-laptop {
+      font-size: 22px;
+    }
+    @include media-tablet {
+      font-size: 16px;
+    }
+    &--bolder {
+      font-weight: 500;
+    }
+  }
+  &__descr {
+    font: 300 30px/1.2 $font;
+    @include media-laptop {
+      font-size: 23px;
+    }
+    @include media-tablet {
+      font-size: 16px;
+    }
+  }
+  &__foot {
+    margin-top: 135px;
+    text-align: center;
+    @include media-laptop {
+      margin-top: 80px;
+    }
+    @include media-tablet {
+      margin-top: 50px;
+    }
+  }
+}

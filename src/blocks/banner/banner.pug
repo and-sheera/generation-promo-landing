@@ -1,0 +1,22 @@
+mixin banner(mods)
+  -
+    const baseName = 'banner'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+  .banner(class=allMods)&attributes(attributes)
+    .inner
+      .banner__container
+        h1.banner__title квиз-лендинг всего за&nbsp;3&nbsp;дня под вашу
+          =' '
+          span.text-blue |нишу
+        .banner__bottom
+          .banner__descr Полная интеграция с&nbsp;рекламным трафиком +&nbsp;горячие заявки с&nbsp;квиза
+          a.banner__button(href='#') обсудить проект
+    block

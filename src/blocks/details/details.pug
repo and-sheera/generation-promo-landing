@@ -1,0 +1,69 @@
+mixin details(mods)
+  -
+    const baseName = 'details'
+    let allMods = ''
+    if (typeof mods !== 'undefined' && mods) {
+      const modsList = mods.split(',')
+      for (const element of modsList) {
+        allMods += element.trim()[0] === '-' ? ' ' + baseName + element.trim() : ' ' + element.trim() + '__' + baseName
+      }
+      allMods = allMods.trim()
+    }
+
+    const data = [
+      {
+        name: 'Знакомство с&nbsp;проектом',
+        nameMod: 'bolder',
+        descr: [
+          'Знакомство и заполнение брифа',
+          'Погружение в проект и нишу',
+          'Анализ конкурентов',
+        ],
+      },
+      {
+        name: 'Начало работы',
+        descr: [
+          'Составление вопросов квиза',
+          'Проработка дизайн концепции',
+        ],
+      },
+      {
+        name: 'основная часть',
+        descr: [
+          'Верстка проекта',
+          'Установка системы управления',
+          'Сборка квиз-лендинга',
+          'Настройка всплывающих окон',
+          'Настройка форм обратной связи',
+          'Интеграция с CallTouch',
+          'Настройка виджета WhatsApp',
+          'Настройка лид-магнита на выходе',
+        ],
+      },
+      {
+        name: 'финальная часть',
+        descr: [
+          'Адаптив под мобильные устройства',
+          'Разработка страницы «Спасибо» ',
+          'Настройка сайт-бара справа',
+          'Базовая SEO оптимизация',
+          'Настройка аналитики Яндекс Метрики',
+          'Установка готового продукта на ваш хостинг',
+        ],
+      },
+    ]
+
+  .details(class=allMods)&attributes(attributes)
+    .inner
+      .details__head
+        +ui-h2('С ЧЕГО НАЧИНАЕТСЯ РАБОТА <br> И ЧТО ВКЛЮЧЕНО В БАЗОВЫЙ ПАКЕТ?', 'details')
+        .details__subtitle Мы ответственно подходим к своему делу и&nbsp;стараемся учесть все детали при разработке лендинг-квиза
+      .details__list
+        each item in data
+          .details__item
+            .details__name(class = (item.nameMod ? `details__name--${item.nameMod}` : '')) !{item.name}
+            .details__descr
+              +ui-ul(item.descr, 'detail, --dash')
+      .details__foot
+        +ui-button('Запросить бриф')(href='#')
+    block
